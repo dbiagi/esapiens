@@ -9,5 +9,5 @@ composer dumpautoload
 
 depois disso é só rodar o script main.php
 ```
-php 
+php main.php
 ```
