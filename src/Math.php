@@ -2,6 +2,11 @@
 
 namespace ESapiens;
 
+/**
+ * Class Math
+ *
+ * @package ESapiens
+ */
 class Math {
 
     /**
@@ -88,6 +93,10 @@ class Math {
         return $nums;
     }
 
+    /**
+     * Printa na tela os números primos até $max.
+     * @param $max
+     */
     public static function printPrimesSum($max) {
         echo implode(', ', Math::getPrimeSumUntil($max));
     }
