@@ -11,13 +11,14 @@ class Crypt extends Math {
     ];
 
     public static function decrypt($text) {
-        $key = static::getPrimesUntil(100)[9];
+        $key = static::getPrimesUntil(100)[8];
 
-        $aux = $text;
+        $aux = $text = strtolower($text);
 
         for ($i = 0; $i < strlen($text); $i++) {
             if (in_array(strtolower($text[$i]), static::$map)) {
-                $aux[$i] = static::$map[($i + $key) % 26];
+                $index = static::getIndex($text[$i]);
+                $aux[$i] = static::$map[($index + $key) % 26];
             }
         }
 
