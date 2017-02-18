@@ -5,13 +5,13 @@ namespace ESapiens;
 class Crypt extends Math {
     private static $map = [
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        'i', 'j', 'l', 'm', 'n', 'k', 'o', 'p',
-        'q', 'r', 's', 't', 'u', 'v', 'x', 'w',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+        'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
         'y', 'z',
     ];
 
     public static function decrypt($text) {
-        $key = static::getPrimesUntil(100)[8];
+        $key = static::getPrimeSumUntil(100)[7];
 
         $aux = $text = strtolower($text);
 
