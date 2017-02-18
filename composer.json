@@ -1,0 +1,15 @@
+{
+    "name": "diegobiagi/esapiens",
+    "authors": [
+        {
+            "name": "Diego de Biagi",
+            "email": "diegobiagiviana@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ESapiens\\": "src/"
+        }
+    }
+}
