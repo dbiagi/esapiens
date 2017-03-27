@@ -18,13 +18,34 @@ class Crypt extends Math {
     ];
 
     /**
-     * Descriptografa a string $text.
+     * Descriptografa uma string.
+     *
      * @param $text
+     * @param $key
      * @return string String decriptografada.
      */
-    public static function decrypt($text) {
-        $key = static::getPrimeSumUntil(100)[7];
+    public static function decrypt($text, $key) {
+        $aux = $text = strtolower($text);
 
+        for ($i = 0; $i < strlen($text); $i++) {
+            if (in_array(strtolower($text[$i]), static::$map)) {
+                $index = (static::getIndex($text[$i]) - $key) % count(static::$map);
+                $newIndex = $index < 0 ? $index + count(static::$map) : $index;
+                $aux[$i] = static::$map[$newIndex];
+            }
+        }
+
+        return $aux;
+    }
+
+    /**
+     * Criptografa uma string.
+     *
+     * @param $text
+     * @param $key
+     * @return string
+     */
+    public static function encrypt($text, $key) {
         $aux = $text = strtolower($text);
 
         for ($i = 0; $i < strlen($text); $i++) {
